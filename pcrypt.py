@@ -6,7 +6,7 @@ import binascii
 # modul.encrypt(plainline) // modul.decrypt(chipertext)
 class Materials:
 	def __init__(self, pictureName):
-		# special materials needed to read the message clearly
+		# i recommend to use a PNG picture file for the key
 		try:
 			with open(pictureName, 'rb') as sternenbytes:
 				keystring = binascii.a2b_base64(sternenbytes.read())
