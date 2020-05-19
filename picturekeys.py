@@ -3,6 +3,14 @@ import pickle
 '''
 some information
 
+        import picturekeys
+        a = picturekeys.Materials('LargePicture.png')
+
+        a.part.sessionKEY # is the used key
+        a.decrypt(a.encrypt('Hallo')) # output is 'Hallo'
+        a.export() # pickle the sessionKEY to sessionkey.dat
+        a.KEYDATA # more 1028b keys...
+
 '''
 class KeyObj:
 	def __init__(self, PART):
@@ -66,9 +74,6 @@ class Materials:
 		feed = list(plaintext)
 		r = ''
 		for k, item in enumerate(feed):
-			print(item, ord(item), self.part.sessionKEY[k])
 			r += chr(self._ciph(ord(item) + self.part.sessionKEY[k])) # addition can be over 256!
 		return r
-
-
-
+	
